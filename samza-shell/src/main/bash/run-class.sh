@@ -55,7 +55,7 @@ if [ -z "$SAMZA_CONTAINER_NAME" ]; then
 fi
 
 if [ -z "$SAMZA_OPTS" ]; then
-  SAMZA_OPTS="-Xmx160M -XX:+PrintGCDateStamps -Xloggc:$SAMZA_LOG_DIR/gc.log -Dsamza.log.dir=$SAMZA_LOG_DIR -Dsamza.container.name=$SAMZA_CONTAINER_NAME"
+  SAMZA_OPTS="$JAVA_OPTS -XX:+PrintGCDateStamps -Xloggc:$SAMZA_LOG_DIR/gc.log -Dsamza.log.dir=$SAMZA_LOG_DIR -Dsamza.container.name=$SAMZA_CONTAINER_NAME"
   if [ -f $base_dir/lib/log4j.xml ]; then
     SAMZA_OPTS="$SAMZA_OPTS -Dlog4j.configuration=file:$base_dir/lib/log4j.xml"
   fi
